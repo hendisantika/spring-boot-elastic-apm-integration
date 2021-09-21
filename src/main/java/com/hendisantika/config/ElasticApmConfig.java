@@ -1,9 +1,14 @@
 package com.hendisantika.config;
 
+import co.elastic.apm.attach.ElasticApmAttacher;
 import lombok.Setter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,4 +37,17 @@ public class ElasticApmConfig {
     private String environment;
     private String applicationPackages;
     private String logLevel;
+
+    @PostConstruct
+    public void init() {
+        Map<String, String> apmProps = new HashMap<>(6);
+        apmProps.put(SERVER_URL_KEY, serverUrl);
+        apmProps.put(SERVICE_NAME_KEY, serviceName);
+        apmProps.put(SECRET_TOKEN_KEY, secretToken);
+        apmProps.put(ENVIRONMENT_KEY, environment);
+        apmProps.put(APPLICATION_PACKAGES_KEY, applicationPackages);
+        apmProps.put(LOG_LEVEL_KEY, logLevel);
+
+        ElasticApmAttacher.attach(apmProps);
+    }
 }

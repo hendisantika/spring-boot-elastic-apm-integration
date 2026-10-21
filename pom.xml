@@ -14,7 +14,7 @@
     <name>spring-boot-elastic-apm-integration</name>
     <description>Elastic APM Spring Boot Integration</description>
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
     </properties>
     <dependencies>
         <dependency>

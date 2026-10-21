@@ -1,5 +1,25 @@
 # spring-boot-elastic-apm-integration
 
+[![Java CI with Maven](https://github.com/hendisantika/spring-boot-elastic-apm-integration/actions/workflows/maven.yml/badge.svg)](https://github.com/hendisantika/spring-boot-elastic-apm-integration/actions/workflows/maven.yml)
+
+### Requirements
+
+- JDK 25
+- Maven 3.9+
+- Docker & Docker Compose (for Elasticsearch, Kibana, and Elastic APM Server)
+
+### Tech Stack
+
+- Java 25
+- Spring Boot 4.1.1
+- Elastic APM Java Agent (`apm-agent-attach`) 1.57.1
+
+### Build
+
+```shell
+mvn clean package
+```
+
 ### Things todo list:
 
 1. Clone this repository: `https://github.com/hendisantika/spring-boot-elastic-apm-integration.git`
